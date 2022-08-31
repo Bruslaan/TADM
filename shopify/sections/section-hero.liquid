@@ -1,0 +1,125 @@
+{% assign image = section.settings.image %}
+
+<div class="container mb-12 md:mb-24 ">
+  <div class="w-full  relative  lg:grid grid-cols-2">
+
+    <div class="relative">
+
+ 
+      {% if image %}
+      <img
+        sizes="
+          (min-width: 1280px) 1500px,
+          (min-width: 1024px) 1250px,
+          (min-width: 768px) 1000px,
+          (min-width: 640px) 720px,
+          600px
+        "
+        srcset="
+          {{ image | img_url: '600x' }} 600w,
+          {{ image | img_url: '720x' }} 720w,
+          {{ image | img_url: '1000x' }} 1000w,
+          {{ image | img_url: '1250x' }} 1250w,
+          {{ image | img_url: '1500x' }} 1500w
+        "
+        src="test.webp"
+        alt="{{ image.alt }}"
+        loading="lazy"
+        class="w-full h-full object-cover object-center"
+      >
+    {% else %}
+    <img
+ 
+    src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/d03d62fa-6f9b-4297-be3a-53529e137528/test.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220830%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220830T191107Z&X-Amz-Expires=86400&X-Amz-Signature=b2c41ec6f3ded53bca06bcf3b3d18cdbe59b694eb65e354f66a49db024e915fd&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22test.webp%22&x-id=GetObject"
+    alt="{{ image.alt }}"
+    loading="lazy"
+    class="w-full h-full object-cover object-center -rotate-12"
+  >
+    {% endif %}
+
+    </div>
+
+    <div class="w-full flex justify-center items-center">
+      <div class="p-4 space-y-10 ">
+
+        <div class="text-2xl lg:text-6xl font-thin mb-2">
+         "Sind sie zu stark, bist du zu schwach"
+        </div>
+
+        <div class="text-2xl lg:text-6xl font-bold mb-2 text-orange-900">
+          TADM Black
+         
+        </div>
+  
+        <div class="mb-6 lg:text-2xl text-gray-400 flex space-x-6 ">
+         <h1>VEGAN</h1> 
+         <h1>BIO</h1> 
+         <h1>ANIMAL FRIENDLY</h1>
+        </div>
+        <!-- <a href="{{ section.settings.button-url }}" class="button bg-white">
+          {{ section.settings.button-text }} {{ section.settings.hero-promotion }}
+        </a> -->
+        <a href="{{ section.settings.button-url }}" class="button bg-black text-white px-10 py-3">
+         Kaufen
+        </a> 
+      </div>
+
+
+  
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.hero.name",
+  "class": "shopify-section-vue",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:common.image"
+    },
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "t:common.headline",
+      "default": "Headline"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "t:common.text",
+      "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste quos hic praesentium recusandae dolores odio animi deleniti officia cum itaque."
+    },
+    {
+      "type": "text",
+      "id": "isatext",
+      "label": "This is isaText",
+      "default": "Hallo World"
+    },
+    {
+      "type": "url",
+      "id": "button-url",
+      "label": "t:common.button.url"
+    },
+    {
+      "type": "text",
+      "id": "hero-promotion",
+      "label": "Promotion"
+    },
+    {
+      "type": "text",
+      "id": "button-text",
+      "label": "t:common.button.text",
+      "default": "Button"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.hero.name",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}
