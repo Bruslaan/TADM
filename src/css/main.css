@@ -11,3 +11,52 @@
 @import "_transitions";
 
 @import "tailwindcss/utilities";
+
+
+
+@font-face {
+    font-family: ubuntubold;
+    src: url(Ubuntu-Bold.ttf);
+  }
+  
+
+  @font-face {
+    font-family: ubuntu;
+    src: url(Ubuntu-Regular.ttf);
+  }
+  @font-face {
+    font-family: ubuntuthin;
+    src: url(Ubuntu-Light.ttf);
+  }
+
+
+  .ubuntu {
+    font-family: ubuntu;
+  }
+
+
+  .ubuntubold {
+    font-family: ubuntubold;
+  }
+
+  .ubuntuthin {
+    font-family: ubuntuthin;
+  }
+
+
+  @keyframes float {
+    0% {
+      transform: translatey(0px);
+    }
+  
+    50% {
+      transform: translatey(-20px);
+    }
+    100% {
+      transform: translatey(0px);
+    }
+  }
+  
+  .animate-floating {
+    animation: float 4s linear infinite;
+  }

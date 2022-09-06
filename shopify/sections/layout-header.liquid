@@ -1,11 +1,11 @@
-<div class="bg-white  border-gray-200">
+<div class=" bg-blue-50">
   <div class="container">
-    <div class="flex justify-center md:justify-between items-center">
+    <div class="flex justify-center md:justify-between items-center mt-3">
       <a
         href="{{ routes.root_url }}"
         class="inline-block text-2xl lg:text-3xl font-bold"
       >
-        {{ shop.name }}
+        <img width="100" src="{{ 'logo.static.svg' | asset_url }}" alt="">
       </a>
 
       <div class="hidden md:block">
@@ -18,10 +18,9 @@
       <div class="hidden md:flex space-x-2 lg:space-x-6">
         <a
           href="{{ routes.search_url }}"
-          class="{{ link_class }}"
+          class=" bg-black text-white rounded px-8 h-14 flex items-center shadow-lg"
         >
-          {% render 'icon-search', class: icon_class %}
-          {{ 'action.search' | t }}
+        SHOP NOW
         </a>
 
         {% if shop.customer_accounts_enabled %}
@@ -34,7 +33,7 @@
           </a>
         {% endif %}
 
-        <a
+        <!-- <a
           href="{{ routes.cart_url }}"
           class="{{ link_class }} relative"
         >
@@ -46,7 +45,7 @@
               {{ cart.item_count }}
             </div>
           {% endif %}
-        </a>
+        </a> -->
       </div>
     </div>
   </div>

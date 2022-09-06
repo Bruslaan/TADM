@@ -29,7 +29,7 @@
     {{ content_for_header }}
   </head>
 
-  <body class="min-h-screen">
+  <body class="min-h-screen bg-blue-50">
     {% if request.page_type == 'captcha' %}
       {% comment %}
         fix: Shopify automatically inserts script tags on captcha pages into the content_for_layout tag
